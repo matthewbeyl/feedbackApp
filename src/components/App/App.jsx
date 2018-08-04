@@ -9,32 +9,27 @@ import ViewFour from '../ViewFour/ViewFour';
 import ViewFive from '../ViewFive/ViewFive';
 import AdminView from '../AdminView/AdminView';
 import NotFound from '../NotFound/NotFound';
+import Header from '../Header/Header';
 
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div>
-          <div className="App">
-            <header className="App-header">
-              <h1 className="App-title">Feedback for Donuts</h1>
-              <h4><i>Don't forget it!</i></h4>
-            </header>
-            <br />
-          </div>
+      <div>
+        <Header />
+        <Router>
           <Switch>
-            <Redirect exact from="/" to="/viewOne" />
-            <Route path="/viewOne" component={ViewOne} />
-            <Route path="/viewTwo" component={ViewTwo} />
-            <Route path="/viewThree" component={ViewThree} />
-            <Route path="/viewFour" component={ViewFour} />
-            <Route path="/viewFive" component={ViewFive} />
-            <Route path="/adminView" component={AdminView} />
+            <Redirect exact from="/" to="/1" />
+            <Route path="/1" component={ViewOne} />
+            <Route path="/2" component={ViewTwo} />
+            <Route path="/3" component={ViewThree} />
+            <Route path="/4" component={ViewFour} />
+            <Route path="/5" component={ViewFive} />
+            <Route path="/admin" component={AdminView} />
             <Route component={NotFound} />
           </Switch>
-        </div>
-      </Router>
+        </Router>
+      </div>
     );
   }
 }
