@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-// import Input from '@material-ui/core/Input';
+import { connect } from 'react-redux';
 
 const styles = theme => ({
   button: {
@@ -33,4 +32,6 @@ class ViewFour extends Component {
   }
 }
 
-export default withStyles(styles)(ViewFour);
+const StyledViewFour = withStyles(styles)(ViewFour);
+
+export default connect()(StyledViewFour);

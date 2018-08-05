@@ -12,10 +12,31 @@ const initialState = {
 
 const feedbackReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'ADD_TO_FEEDBACK':
+        case 'ADD_FEELING':
         return {
             ...state,
             feedback: [ 
+                action.payload
+            ]
+        };
+        case 'ADD_UNDERSTANDING':
+        return {
+            ...state,
+            feedback: [
+                action.payload
+            ]
+        };
+        case 'ADD_SUPPORT':
+        return {
+            ...state,
+            feedback: [
+                action.payload
+            ]
+        };
+        case 'ADD_COMMENTS':
+        return {
+            ...state,
+            feedback: [
                 action.payload
             ]
         };
@@ -23,28 +44,5 @@ const feedbackReducer = (state = initialState, action) => {
             return state;
     }
 }
-
-// const order = (state = initialState, action) => {
-//     switch (action.type) {
-//         case 'ADD_PIZZA_TO_ORDER':
-//         return { 
-//             ...state,
-//             pizzas: [
-//                 ...state.pizzas, action.payload
-//             ],
-//             order_total: state.order_total + action.payload.cost 
-//         };
-//         case 'REMOVE_PIZZA_FROM_ORDER':
-//             const pizzaMatch = pizza => pizza._id !== action.payload._id;
-//             return {...state, pizzas:state.pizzas.filter(pizzaMatch)};
-//         case 'ADD_CUSTOMER_INFO':
-//             return { ...state, customer: action.payload, type: action.orderType };
-//         case 'CLEAR_ORDER':
-//             state = initialState;
-//             return state;
-//         default:
-//             return state;
-//     }
-// }
 
 export default feedbackReducer;

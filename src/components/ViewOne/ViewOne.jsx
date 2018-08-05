@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-// import Input from '@material-ui/core/Input';
 import { connect } from 'react-redux';
-
 
 const styles = theme => ({
   button: {
@@ -15,23 +12,13 @@ const styles = theme => ({
   },
 });
 
-const feedback = {
-  id: '',
-  feeling: '',
-  understanding: '',
-  support: '',
-  comments: '',
-  flagged: '',
-  date: ''
-}
-
 class ViewOne extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      feedback
+      feeling: '',
     }
   }
 
@@ -41,7 +28,7 @@ class ViewOne extends Component {
         ...this.state,
         feedback: {
           ...this.state.feedback,
-        [propertyName]: event.target.value
+          [propertyName]: event.target.value
         }
       })
     }
@@ -49,7 +36,7 @@ class ViewOne extends Component {
 
   goToTwo = (event) => {
     event.preventDefault();
-    this.props.dispatch({ type: 'ADD_TO_FEEDBACK', payload: this.state.feedback })
+    this.props.dispatch({ type: 'ADD_FEELING', payload: this.state.feedback })
     this.props.history.push('/2')
   }
 
@@ -57,7 +44,7 @@ class ViewOne extends Component {
     return (
       <form onSubmit={this.goToTwo}>
         <h1>How are you feeling today?</h1>
-        <input type="number"  onChange={this.handleChangeFor('feeling')} />
+        <input type="number" onChange={this.handleChangeFor('feeling')} />
         <Button type="submit" variant="contained">NEXT</Button>
       </form>
     );
