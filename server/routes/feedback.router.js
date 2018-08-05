@@ -16,4 +16,13 @@ VALUES ($1, $2, $3, $4);`, [req.body.feedback.feeling, req.body.feedback.underst
         })
 });
 
+router.get('/', (req, res) => {
+    pool.query(`SELECT "feeling", "understanding", "support", "comments", "flagged" FROM "feedback";`)
+    .then((results) => {
+        res.send(results.rows)
+    }).catch((error) => {
+        console.log('Error:', error);
+    })
+})
+
 module.exports = router;
