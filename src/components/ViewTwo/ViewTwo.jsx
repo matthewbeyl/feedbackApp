@@ -22,22 +22,15 @@ class ViewTwo extends Component {
     }
   }
 
-  handleChangeFor = (propertyName) => {
-    return (event) => {
-      this.setState({
-        ...this.state,
-        feedback: {
-          ...this.state.feedback,
-          [propertyName]: event.target.value
-        }
-      })
-    }
+  handleChangeFor = (event) => {
+    this.setState({
+      understanding: event.target.value
+    })
   }
 
   goToThree = (event) => {
-    console.log('clicked');
-    this.props.dispatch({ type: 'ADD_UNDRSTANDING', payload: this.state.feedback })
     event.preventDefault();
+    this.props.dispatch({ type: 'ADD_UNDERSTANDING', payload: this.state.understanding })
     this.props.history.push('/3')
   }
 
@@ -45,7 +38,7 @@ class ViewTwo extends Component {
     return (
       <form onSubmit={this.goToThree}>
         <h1>How well are you understanding the content?</h1>
-        <input type="number" onChange={this.handleChangeFor('understanding')} />
+        <input type="number" onChange={this.handleChangeFor} />
         <Button type="submit" variant="contained">NEXT</Button>
       </form>
     );

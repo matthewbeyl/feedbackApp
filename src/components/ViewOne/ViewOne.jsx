@@ -22,21 +22,15 @@ class ViewOne extends Component {
     }
   }
 
-  handleChangeFor = (propertyName) => {
-    return (event) => {
-      this.setState({
-        ...this.state,
-        feedback: {
-          ...this.state.feedback,
-          [propertyName]: event.target.value
-        }
-      })
-    }
+  handleChangeFor = (event) => {
+    this.setState({
+      feeling: event.target.value
+    })
   }
 
   goToTwo = (event) => {
     event.preventDefault();
-    this.props.dispatch({ type: 'ADD_FEELING', payload: this.state.feedback })
+    this.props.dispatch({ type: 'ADD_FEELING', payload: this.state.feeling })
     this.props.history.push('/2')
   }
 
@@ -44,7 +38,7 @@ class ViewOne extends Component {
     return (
       <form onSubmit={this.goToTwo}>
         <h1>How are you feeling today?</h1>
-        <input type="number" onChange={this.handleChangeFor('feeling')} />
+        <input type="number" onChange={this.handleChangeFor} />
         <Button type="submit" variant="contained">NEXT</Button>
       </form>
     );

@@ -14,18 +14,31 @@ const styles = theme => ({
 
 class ViewFour extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      comments: '',
+    }
+  }
+
+  handleChangeFor = (event) => {
+    this.setState({
+      comments: event.target.value
+    })
+  }
+
   goToFive = (event) => {
-    console.log('clicked');
-    
     event.preventDefault();
-      this.props.history.push('/5')
+    this.props.dispatch({ type: 'ADD_COMMENTS', payload: this.state.comments })
+    this.props.history.push('/5')
   }
 
   render() {
     return (
       <form onSubmit={this.goToFive}>
         <h1>Any comments you want to leave?</h1>
-        <input type="text" placeholder="Comments..." />
+        <input type="text" placeholder="Comments..." onChange={this.handleChangeFor} />
         <Button type="submit" variant="contained">NEXT</Button>
       </form>
     );

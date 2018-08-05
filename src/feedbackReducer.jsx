@@ -1,12 +1,10 @@
 const initialState = {
     feedback: {
-        id: '',
         feeling: '',
         understanding: '',
         support: '',
         comments: '',
         flagged: '',
-        date: ''
     }
 }
 
@@ -14,31 +12,26 @@ const feedbackReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_FEELING':
         return {
-            ...state,
-            feedback: [ 
-                action.payload
-            ]
+            ...state.feedback,
+            feeling: action.payload            
         };
         case 'ADD_UNDERSTANDING':
         return {
             ...state,
-            feedback: [
-                action.payload
-            ]
+            ...state.feedback,
+            understanding: action.payload
         };
         case 'ADD_SUPPORT':
         return {
             ...state,
-            feedback: [
-                action.payload
-            ]
+            ...state.feedback,
+            support: action.payload            
         };
         case 'ADD_COMMENTS':
         return {
             ...state,
-            feedback: [
-                action.payload
-            ]
+            ...state.feedback,
+            comments: action.payload
         };
         default:
             return state;

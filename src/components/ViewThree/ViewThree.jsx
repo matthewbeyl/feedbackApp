@@ -14,18 +14,31 @@ const styles = theme => ({
 
 class ViewThree extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      support: '',
+    }
+  }
+
+  handleChangeFor = (event) => {
+    this.setState({
+      support: event.target.value
+    })
+  }
+
   goToFour = (event) => {
-    console.log('clicked');
-    
     event.preventDefault();
-      this.props.history.push('/4')
+    this.props.dispatch({ type: 'ADD_SUPPORT', payload: this.state.support })
+    this.props.history.push('/4')
   }
 
   render() {
     return (
       <form onSubmit={this.goToFour}>
         <h1>How well are you being supported?</h1>
-        <input type="number" />
+        <input type="number" onChange={this.handleChangeFor} />
         <Button type="submit" variant="contained">NEXT</Button>
       </form>
     );
