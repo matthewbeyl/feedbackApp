@@ -16,7 +16,6 @@ class ViewFour extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       comments: '',
     }

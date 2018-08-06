@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+// import swal from '../../../public/vendors/sweetalert.min.js'
 
 class AdminView extends Component {
   constructor() {
@@ -9,9 +10,21 @@ class AdminView extends Component {
     }
   }
 
+  // confirmDelete = () => {
+  // }
+
+  // deleteFeedback = () => {
+  //     console.log('clicked');
+  //     axios.delete(`/api/feedback/${id}`)
+  //     .then((response) => {
+  //       console.log(response);
+  //   }).catch((error) => {
+  //     console.log(error);
+  //   })
+  // }
+
   getFeedback = () => {
     axios.get('/api/feedback').then((response) => {
-      console.log(response.data);
       this.setState({
         feedback: response.data
       })
@@ -31,7 +44,7 @@ class AdminView extends Component {
           <td>{entry.support}</td>
           <td>{entry.comments}</td>
           <td></td>
-          <button>Delete</button>
+          <button onClick={this.deleteFeedback}>Delete</button>
         </tr>
       )
     })

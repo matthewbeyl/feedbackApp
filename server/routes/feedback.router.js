@@ -25,4 +25,13 @@ router.get('/', (req, res) => {
     })
 })
 
+// router.delete('/:id', (req, res) => {
+//     pool.query(`DELETE from "feedback" WHERE "id" = $1;`, [req.params.id])
+//     .then((results) => {
+//         console.log(results);
+//     }).catch((error) => {
+//         console.log('error', error, req.params.id);
+//     })
+// })
+
 module.exports = router;

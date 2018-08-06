@@ -10,6 +10,22 @@ const styles = theme => ({
   input: {
     display: 'none',
   },
+
+  card: {
+    minWidth: 275,
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  title: {
+    marginBottom: 16,
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
 });
 
 class ViewOne extends Component {
@@ -38,7 +54,7 @@ class ViewOne extends Component {
     return (
       <form onSubmit={this.goToTwo}>
         <h1>How are you feeling today?</h1>
-        <input type="number" onChange={this.handleChangeFor} />
+        <input type="number" placeholder="1-5" onChange={this.handleChangeFor} />
         <Button type="submit" variant="contained">NEXT</Button>
       </form>
     );

@@ -38,7 +38,7 @@ class ViewThree extends Component {
     return (
       <form onSubmit={this.goToFour}>
         <h1>How well are you being supported?</h1>
-        <input type="number" onChange={this.handleChangeFor} />
+        <input type="number" placeholder="1-5" onChange={this.handleChangeFor} />
         <Button type="submit" variant="contained">NEXT</Button>
       </form>
     );

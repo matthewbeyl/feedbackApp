@@ -38,7 +38,7 @@ class ViewTwo extends Component {
     return (
       <form onSubmit={this.goToThree}>
         <h1>How well are you understanding the content?</h1>
-        <input type="number" onChange={this.handleChangeFor} />
+        <input type="number" placeholder="1-5" onChange={this.handleChangeFor} />
         <Button type="submit" variant="contained">NEXT</Button>
       </form>
     );
